@@ -18,13 +18,83 @@ import "../styles/global.css";
     <meta name="generator" content={Astro.generator} />
     <title>Ajolotech.</title>
   </head>
-  <body>
-    <nav>
-      <Link title="Home" href="/"
-        >Home<Link />
-        <Link title="About" href="/about">About<Link /> </Link>
-      </Link>
+  <body
+    class="bg"
+    style={{
+      backgroundColor: "rgb(241, 239, 240)",
+      padding: "30px 80px",
+      maxWidth: "1400px",
+      margin: "0 auto",
+    }}
+  >
+    <nav
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        paddingRight: "10px",
+      }}
+    >
+      <div
+        style={{
+          height: "70px",
+          width: "160px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          position: "relative",
+        }}
+      >
+        <div>
+          <img src="/Ajolotech.png" style={{ height: "60px", width: "60px" }} />
+        </div>
+        <span
+          style={{
+            position: "absolute",
+            right: "0",
+            bottom: "22px",
+            fontFamily: "Poppins",
+            fontWeight: 500,
+            fontSize: "20px",
+          }}>ajolotech.</span
+        >
+      </div>
+      <div
+        style={{
+          width: "300px",
+          height: "20px",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <Link title="Inicio" href="/" />
+        <div style={{ height: "100%", width: "2px" }} class="rounded-lg"></div>
+        <div
+          style={{ height: "100%", width: "2px", backgroundColor: "#2e2e2e" }}
+          class="rounded-lg"
+        >
+        </div>
+        <Link title="Nosotros" href="/about" />
+        <div
+          style={{ height: "100%", width: "2px", backgroundColor: "#2e2e2e" }}
+          class="rounded-lg"
+        >
+        </div>
+        <Link title="Servicios" href="/services" />
+      </div>
+      <div
+        style={{
+          color: "white",
+          padding: "5px 10px",
+        }}
+        class="rounded-lg bg-ajolo-pink hover:bg-ajolo-pink-hover"
+      >
+        <Link title="Contact" href="/contact">Contacto</Link>
+      </div>
     </nav>
-    <slot />
+    <div>
+      <slot />
+    </div>
   </body>
 </html>
