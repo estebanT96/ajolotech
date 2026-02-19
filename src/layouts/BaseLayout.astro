@@ -1,4 +1,5 @@
 ---
+import ContactButton from "../components/ContactButton.astro";
 import Link from "../components/Link.astro";
 import "../styles/global.css";
 ---
@@ -83,18 +84,10 @@ import "../styles/global.css";
         </div>
         <Link title="Servicios" href="/services" />
       </div>
-      <div
-        style={{
-          color: "white",
-          padding: "5px 10px",
-        }}
-        class="rounded-lg bg-ajolo-pink hover:bg-ajolo-pink-hover"
-      >
-        <Link title="Contact" href="/contact">Contacto</Link>
-      </div>
+
+        <ContactButton href="/contact" title="Contacto" />
+
     </nav>
-    <div>
-      <slot />
-    </div>
+    <slot />
   </body>
 </html>

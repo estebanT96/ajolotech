@@ -1,0 +1,18 @@
+---
+interface Props {
+  href: string;
+  title: string;
+}
+
+const { href, title } = Astro.props;
+---
+
+<div
+  style={{
+    color: "white",
+    padding: "5px 20px",
+  }}
+  class="rounded-lg bg-ajolo-pink hover:bg-ajolo-pink-hover hover:translate-y-[1px] shadow-lg hover:shadow-none transition-all duration-100 active:scale-99"
+>
+  <a href={href}>{title}</a>
+</div>
