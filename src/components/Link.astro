@@ -1,0 +1,18 @@
+---
+const { href } = Astro.props;
+---
+
+<a href={href} class="text-gray">
+  <slot />
+</a>
+
+<style>
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+</style>
