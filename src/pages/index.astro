@@ -4,13 +4,16 @@ import SpinningTest from "../components/SpinningTest.astro";
 ---
 
 <BaseLayout title="Home">
-  <div class="p-5 flex items-center justify-center h-200">
-    <div
-      class="w-[50%] h-full flex items-center font-space font-bold text-7xl"
-    >
-      <h1>DIGITALIZA TU EMPRESA</h1>
+  <div
+    class="px-20 flex items-center justify-center h-170 rounded-3xl bg-[#fdaba5]"
+  >
+    <div class="w-[50%] flex flex-col justify-start">
+      <h1 class="font-space font-bold text-6xl mb-3">DIGITALIZA TU EMPRESA</h1>
+      <div>
+        <a href="" class="bg-white px-4 py-1 font-space font-bold rounded-lg border-2 border-b-4">SERVICIOS</a>
+      </div>
     </div>
-    <div class="w-[50%] h-full border-10 border-white rounded-3xl bg-rose-100">
+    <div class="w-[50%] h-full">
       <SpinningTest />
     </div>
   </div>
