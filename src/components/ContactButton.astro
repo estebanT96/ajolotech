@@ -10,24 +10,22 @@ const { href, title } = Astro.props;
 <div>
   <a
     href={href}
-    style={{
-      padding: "8px 20px",
-    }}
-    class="block
-    font-space
-    font-semibold
-    rounded-xl
-    border-2
-    border-b-4
-    border-black
-    bg-transparent
-    hover:bg-ajolo-pink
-    shadow-lg
-    hover:translate-y-px
-    hover:shadow-none
-    hover:text-white
-    hover:border-transparent
-    transition-all
+    class="inline-block
+          bg-white
+          px-4
+          py-2
+          font-space
+          font-bold
+          rounded-lg
+          border-2
+          text-lg
+          shadow-[0_2px_0_0_#000]
+          hover:text-white
+          hover:border-black
+          hover:translate-y-px
+          hover:shadow-[0_0.5px_0_0_#000]
+          hover:bg-ajolo-pink
+          transition-all
     duration-100
     ease-out"
     >{title}</a
