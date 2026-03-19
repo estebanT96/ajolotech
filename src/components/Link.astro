@@ -4,8 +4,40 @@ interface Props {
   title: string;
 }
 const { href, title } = Astro.props;
+const { pathname } = Astro.url;
+
+// Lógica para detectar la página activa
+const isActive =
+  pathname === href || (href !== "/" && pathname.startsWith(href));
 ---
 
-<a href={href} class="hover:text-ajolo-pink">
-  {title}
-</a>
+<div class="relative flex flex-col items-center group">
+  <a
+    href={href}
+    class="transition-colors duration-200 font-space text-md font-semibold text-terminal hover:text-ajolo-pink"
+  >
+    {title}
+  </a>
+  {
+    isActive && (
+      <div class="dot absolute -bottom-2 w-1.5 h-1.5 rounded-full bg-ajolo-pink" />
+    )
+  }
+</div>
+
+<style>
+  .dot {
+    animation: popIn 0.2s ease-out forwards;
+  }
+
+  @keyframes popIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.5) translateY(5px);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+</style>

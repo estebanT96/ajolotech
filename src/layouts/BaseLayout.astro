@@ -2,6 +2,10 @@
 import ContactButton from "../components/ContactButton.astro";
 import Link from "../components/Link.astro";
 import "../styles/global.css";
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
 ---
 
 <html lang="en">
@@ -11,83 +15,31 @@ import "../styles/global.css";
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Grotesk:wght@300..700&display=swap"
       rel="stylesheet"
     />
-
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Ajolotech.</title>
+    <title>{title}</title>
   </head>
-  <body
-    class="bg"
-    style={{
-      backgroundColor: "rgb(241, 239, 240)",
-      padding: "30px 80px",
-      maxWidth: "1400px",
-      margin: "0 auto",
-    }}
-  >
-    <nav
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        paddingRight: "10px",
-      }}
-    >
-      <div
-        style={{
-          height: "70px",
-          width: "160px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          position: "relative",
-        }}
-      >
-        <div>
-          <img src="/Ajolotech.png" style={{ height: "60px", width: "60px" }} />
+  <body class="bg-[#ebebeb]">
+    <div class="rounded-xl px-10 py-4 mt-8 lg:mx-40 md:mx-20 sm:mx-10 h-[80vh]">
+      <nav class="flex justify-between items-center">
+        <div class="flex items-center gap-1">
+          <img src="/Ajolotech.png" class="h-24 w-24" />
+          <span class="font-poppins font-medium text-2xl">ajolotech.</span>
         </div>
-        <span
-          style={{
-            position: "absolute",
-            right: "0",
-            bottom: "22px",
-            fontFamily: "Poppins",
-            fontWeight: 500,
-            fontSize: "20px",
-          }}>ajolotech.</span
-        >
-      </div>
-      <div
-        style={{
-          width: "300px",
-          height: "20px",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <Link title="Inicio" href="/" />
-        <div style={{ height: "100%", width: "2px" }} class="rounded-lg"></div>
-        <div
-          style={{ height: "100%", width: "2px", backgroundColor: "#2e2e2e" }}
-          class="rounded-lg"
-        >
-        </div>
-        <Link title="Nosotros" href="/about" />
-        <div
-          style={{ height: "100%", width: "2px", backgroundColor: "#2e2e2e" }}
-          class="rounded-lg"
-        >
-        </div>
-        <Link title="Servicios" href="/services" />
-      </div>
 
-        <ContactButton href="/contact" title="Contacto" />
+        <div class="flex justify-between w-87.5">
+          <Link title="INICIO" href="/" />
+          <Link title="NOSOTROS" href="/about" />
+          <Link title="SERVICIOS" href="/services" />
+        </div>
 
-    </nav>
-    <slot />
+        <ContactButton href="/contact" title="CONTACTO" />
+      </nav>
+
+      <slot />
+    </div>
   </body>
 </html>

@@ -1,7 +1,17 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import SpinningTest from "../components/SpinningTest.astro";
 ---
 
 <BaseLayout title="Home">
-	
+  <div class="p-5 flex items-center justify-center h-200">
+    <div
+      class="w-[50%] h-full flex items-center font-space font-bold text-7xl"
+    >
+      <h1>DIGITALIZA TU EMPRESA</h1>
+    </div>
+    <div class="w-[50%] h-full border-10 border-white rounded-3xl bg-rose-100">
+      <SpinningTest />
+    </div>
+  </div>
 </BaseLayout>

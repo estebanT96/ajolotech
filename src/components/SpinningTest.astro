@@ -1,0 +1,95 @@
+---
+import mainMac from "../assets/Macbook_Pro_Open_Front_R.png";
+import sphere from "../assets/sphere.png";
+import Keyboard_R from "../assets/Keyboard_R.png";
+import chevronleft from "../assets/chevronleft.png";
+import chevronright from "../assets/chevronright.png";
+import slash from "../assets/slash.png";
+---
+
+<div
+  class="stage flex items-center justify-center w-full h-full relative overflow-hidden"
+>
+  <div class="wrapper relative w-full h-full flex items-center justify-center">
+    <div
+      class="layer z-10 top-1/2 left-1/2 -ml-70 -mt-70 -rotate-40"
+      data-depth="60"
+    >
+      <img src={chevronleft.src} class="floating w-45 h-auto max-w-none" />
+    </div>
+
+    <div
+      class="layer z-10 top-1/2 left-1/2 -ml-37 -mt-70 -rotate-30"
+      data-depth="60"
+    >
+      <img src={slash.src} class="floating w-32 h-auto max-w-none" />
+    </div>
+
+    <div
+      class="layer z-10 top-1/2 left-1/2 -ml-15 -mt-85 -rotate-45"
+      data-depth="60"
+    >
+      <img src={chevronright.src} class="floating w-45 h-auto max-w-none" />
+    </div>
+
+    <div class="layer z-30 top-1/2 left-1/2 ml-30 -mt-60" data-depth="100">
+      <img src={sphere.src} class="floating w-50 h-auto max-w-none" />
+    </div>
+
+    <div class="layer z-30 top-1/2 left-1/2 ml-10 mt-10" data-depth="100">
+      <img src={Keyboard_R.src} class="floating w-80 h-auto max-w-none" />
+    </div>
+
+    <div
+      class="layer z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+      data-depth="120"
+    >
+      <img src={mainMac.src} class="floating w-150 mt-30 h-auto max-w-none" />
+    </div>
+  </div>
+</div>
+
+<style>
+  .layer {
+    position: absolute;
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+  /* max-w-none is important so images don't shrink inside the absolute container */
+  img {
+    max-width: none !important;
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+
+  const stage = document.querySelector(".stage") as HTMLElement | null;
+  const wrapper = document.querySelector(".wrapper") as HTMLElement | null;
+  const layers = document.querySelectorAll(".layer") as NodeListOf<HTMLElement>;
+  const floatingAssets = document.querySelectorAll(
+    ".floating",
+  ) as NodeListOf<HTMLElement>;
+
+  if (stage && wrapper) {
+    // 1. Set initial Z-depth for the "Explosion" effect
+    layers.forEach((layer) => {
+      gsap.set(layer, { z: layer.dataset.depth });
+    });
+
+    // 2. THE IDLE LOOP: Each asset floats at a different rhythm
+    floatingAssets.forEach((asset, i) => {
+      gsap.to(asset, {
+        y: i % 2 === 0 ? -10 : 10, // Some float up, some float down
+        x: i % 2 === 0 ? 5 : -5, // Tiny bit of side-drift
+        rotation: i % 2 === 0 ? 2 : -2, // Very subtle wiggle
+        duration: 3 + i * 0.5, // Offset timing so they look organic
+        ease: "sine.inOut",
+        repeat: -1,
+        yoyo: true,
+      });
+    });
+
+    // 3. THE MOUSE FOLLOW: Subtle tilt
+  }
+</script>
