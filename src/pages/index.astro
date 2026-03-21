@@ -4,6 +4,7 @@ import SpinningTest from "../components/SpinningTest.astro";
 import { Image } from "astro:assets";
 import blueAxol from "../assets/blueaxo.gif";
 import LongServiceCard from "../components/LongServiceCard.astro";
+import SquareServiceCard from "../components/SquareServiceCard.astro";
 ---
 
 <BaseLayout title="Inicio | Ajolotech.">
@@ -82,7 +83,7 @@ import LongServiceCard from "../components/LongServiceCard.astro";
       </div>
     </div>
   </div>
-  <div class="bg-[#105aff] border-t-2">
+  <div class="bg-[#105aff] border-y-2">
     <div class="flex flex-col items-center">
       <div class="text-center mt-4 mb-15 mx-auto">
         <div class="flex items-center justify-center">
@@ -120,6 +121,39 @@ import LongServiceCard from "../components/LongServiceCard.astro";
             description="Tienes mucha información pero no sabes cuánto ganaste realmente este mes o cuál es tu producto más rentable."
           />
           <LongServiceCard
+            title="PROCESOS EN PAPEL O MEMORIA"
+            description='Si tú no estás, el negocio se detiene porque nadie más sabe "cómo se hace".'
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bg-[#e39e2c] border-b-2">
+    <div class="flex flex-col items-center">
+      <div class="text-center my-15 mx-auto h-100">
+        <div class="flex items-center justify-center">
+          <div class="flex flex-col justify-center items-center">
+            <h1 class="font-space text-5xl font-bold leading-tight">
+              NUESTROS SERVICIOS
+            </h1>
+            <div class="h-2 bg-ajolo-pink w-20 mt-1"></div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 px-40 mt-5 gap-5 max-w-350 mx-auto">
+          <SquareServiceCard
+            title="DESARROLLO WEB PROFESIONAL"
+            description="Pierdes horas moviendo datos de un Excel a otro o enviando los mismos correos manualmente."
+          />
+          <SquareServiceCard
+            title="AUTOMATIZACIÓN DE PROCESOS"
+            description="Tus clientes escriben por WhatsApp o Facebook y contestas 3 horas después (cuando ya se fueron con la competencia)."
+          />
+          <SquareServiceCard
+            title="TAREAS INTELIGENTES"
+            description="Atención inmediata y agendamiento automático sin que tú toques el celular."
+          />
+          <SquareServiceCard
             title="PROCESOS EN PAPEL O MEMORIA"
             description='Si tú no estás, el negocio se detiene porque nadie más sabe "cómo se hace".'
           />
