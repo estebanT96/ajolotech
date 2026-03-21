@@ -1,83 +1,151 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SpinningTest from "../components/SpinningTest.astro";
+import { Image } from "astro:assets";
+import blueAxol from "../assets/blueaxo.gif";
+import LongServiceCard from "../components/LongServiceCard.astro";
 ---
 
 <BaseLayout title="Inicio | Ajolotech.">
-  <div class="flex justify-center items-center h-170">
-    <div class="w-[50%] flex flex-col justify-start text-slate-900">
-      <p
-        class="font-space font-bold text-md tracking-[0.3em] uppercase mb-4 opacity-70"
-      >
-        Ingeniería Digital & Automatización
-      </p>
-      <h1
-        class="font-space font-bold text-6xl lg:text-7xl leading mb-6 uppercase"
-      >
-        EFICIENCIA SIN LÍMITES
-      </h1>
-      <div class="h-2 bg-ajolo-pink -mt-3 w-20 mb-3"></div>
+  <div class="bg-[#fdaba5]">
+    <div class="flex justify-center items-center h-170 max-w-350 mx-auto">
+      <div class="w-[50%] flex flex-col justify-start text-slate-900">
+        <p
+          class="font-space font-bold text-md tracking-[0.3em] uppercase mb-4 opacity-70"
+        >
+          Ingeniería Digital & Automatización
+        </p>
+        <h1
+          class="font-space font-bold text-6xl lg:text-7xl leading mb-6 uppercase"
+        >
+          EFICIENCIA SIN LÍMITES
+        </h1>
+        <div class="h-2 bg-ajolo-pink -mt-3 w-20 mb-3"></div>
 
-      <p
-        class="font-space text-xl lg:text-xl font-medium max-w-lg mb-3 opacity-70 leading-tight"
-      >
-        Optimizamos operaciones complejas y automatizamos procesos para el éxito
-        a largo plazo de tu empresa.
-      </p>
-      <div class="flex gap-5">
-        <a
-          href=""
-          class="inline-block
-          bg-white
-          px-4
-          py-2
-          font-space
-          font-bold
-          text-lg
-          rounded-lg
-          border-2
-          shadow-[0_2px_0_0_#000]
-             hover:text-white
-          hover:border-black
-          hover:translate-y-px
-          hover:shadow-[0_0.5px_0_0_#000]
-          hover:bg-ajolo-pink
-          transition-all
+        <p
+          class="font-space text-xl lg:text-md font-medium max-w-lg mb-3 opacity-70 leading-tight"
+        >
+          Optimizamos operaciones complejas y automatizamos procesos para el
+          éxito a largo plazo de tu empresa.
+        </p>
+        <div class="flex gap-5">
+          <a
+            href=""
+            class="inline-block
+    bg-white
+    px-4
+    py-2
+    font-space
+    font-bold
+    text-lg
+    rounded-lg
+    border-2
+    shadow-[0_2px_0_0_#000]
+    hover:text-white
+    hover:border-black
+    hover:translate-y-px
+    hover:shadow-[0_0.5px_0_0_#000]
+    hover:bg-ajolo-pink
+    transition-all
     duration-100
     ease-out"
-        >
-          EXPLORAR SERVICIOS</a
-        >
-        <a
-          href=""
-          class="inline-block
-          bg-[#ff3d3d]
-          px-4
-          py-2
-          font-space
-          font-bold
-          text-lg
-          rounded-lg
-          border-2
-          border-black
-          shadow-[0_2px_0_0_#000]
-         text-white
-          hover:translate-y-px
-          hover:shadow-[0_0.5px_0_0_#000]
-          hover:bg-[#e63e3e]
-          transition-all
+          >
+            EXPLORAR SERVICIOS</a
+          >
+          <a
+            href=""
+            class="inline-block
+    bg-[#ff3d3d]
+    px-4
+    py-2
+    font-space
+    font-bold
+    text-lg
+    rounded-lg
+    border-2
+    border-black
+    shadow-[0_2px_0_0_#000]
+    text-white
+    hover:translate-y-px
+    hover:shadow-[0_0.5px_0_0_#000]
+    hover:bg-[#e63e3e]
+    transition-all
     duration-100
     ease-out"
-        >
-          MÁS INFORMACIÓN
-        </a>
+          >
+            MÁS INFORMACIÓN
+          </a>
+        </div>
+      </div>
+      <div class="w-[45%] h-full">
+        <SpinningTest />
       </div>
     </div>
-    <div class="w-[45%] h-full">
-      <SpinningTest />
+  </div>
+  <div class="bg-[#105aff] border-t-2">
+    <div class="flex flex-col items-center">
+      <div class="text-center mt-4 mb-15 mx-auto">
+        <div class="flex items-center justify-center">
+          <div class="flex flex-col justify-center items-center">
+            <div class="w-40">
+              <Image
+                src={blueAxol}
+                alt="Blue Axol Logo"
+                class="floatingaxo w-auto bg-ajolo-pink"
+              />
+            </div>
+            <h1 class="font-space text-5xl font-bold text-white leading-tight">
+              ¿CÓMO SABER SI NOS NECESITAS?
+            </h1>
+            <div class="h-2 bg-ajolo-pink w-20 mt-1 ml-6"></div>
+          </div>
+        </div>
+
+        <p
+          class="font-space text-2xl font-medium my-3 text-[rgba(255,255,255)]"
+        >
+          Si te pasa esto, tu negocio está listo para el siguiente nivel
+        </p>
+        <div class="flex mx-auto w-3xl flex-col gap-5">
+          <LongServiceCard
+            title="EL EFECTO COPIAR-PEGAR"
+            description="Pierdes horas moviendo datos de un Excel a otro o enviando los mismos correos manualmente."
+          />
+          <LongServiceCard
+            title="VENTAS PERDIDAS"
+            description="Tus clientes escriben por WhatsApp o Facebook y contestas 3 horas después (cuando ya se fueron con la competencia)."
+          />
+          <LongServiceCard
+            title="CEGUERA DE DATOS"
+            description="Tienes mucha información pero no sabes cuánto ganaste realmente este mes o cuál es tu producto más rentable."
+          />
+          <LongServiceCard
+            title="PROCESOS EN PAPEL O MEMORIA"
+            description='Si tú no estás, el negocio se detiene porque nadie más sabe "cómo se hace".'
+          />
+        </div>
+      </div>
     </div>
   </div>
-  <div class="text-center mt-3">
-    <a href="" class="font-space text-4xl font-bold">¿POR QUÉ ELEGIRNOS?</a>
-  </div>
 </BaseLayout>
+
+<script>
+  import { gsap } from "gsap";
+
+  // Buscamos todos los elementos con la clase .floating en cualquier parte
+  const floatingAssets = document.querySelectorAll(".floatingaxo");
+
+  if (floatingAssets.length > 0) {
+    floatingAssets.forEach((asset, i) => {
+      gsap.to(asset, {
+        y: i % 2 === 0 ? -8 : 8, // Un poco más de movimiento vertical
+        x: i % 2 === 0 ? 8 : -8,
+        rotation: i % 2 === 0 ? 3 : -3,
+        duration: 3 + i * 0.5, // Ritmo orgánico
+        ease: "sine.inOut",
+        repeat: -1,
+        yoyo: true,
+      });
+    });
+  }
+</script>

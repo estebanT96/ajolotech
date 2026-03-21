@@ -12,21 +12,21 @@ import slash from "../assets/slash.png";
 >
   <div class="wrapper relative w-full h-full flex items-center justify-center">
     <div
-      class="layer z-10 top-1/2 left-1/2 -ml-70 -mt-55 -rotate-40"
+      class="layer z-10 top-1/2 left-1/2 -ml-65 -mt-60 -rotate-40"
       data-depth="60"
     >
       <img src={chevronleft.src} class="floating w-35 h-auto max-w-none" />
     </div>
 
     <div
-      class="layer z-10 top-1/2 left-1/2 -ml-45 -mt-55 -rotate-30"
+      class="layer z-10 top-1/2 left-1/2 -ml-40 -mt-60 -rotate-30"
       data-depth="60"
     >
       <img src={slash.src} class="floating w-22 h-auto max-w-none" />
     </div>
 
     <div
-      class="layer z-10 top-1/2 left-1/2 -ml-30 -mt-65 -rotate-45"
+      class="layer z-10 top-1/2 left-1/2 -ml-26 -mt-70 -rotate-45"
       data-depth="60"
     >
       <img src={chevronright.src} class="floating w-35 h-auto max-w-none" />
@@ -64,32 +64,20 @@ import slash from "../assets/slash.png";
 <script>
   import { gsap } from "gsap";
 
-  const stage = document.querySelector(".stage") as HTMLElement | null;
-  const wrapper = document.querySelector(".wrapper") as HTMLElement | null;
-  const layers = document.querySelectorAll(".layer") as NodeListOf<HTMLElement>;
-  const floatingAssets = document.querySelectorAll(
-    ".floating",
-  ) as NodeListOf<HTMLElement>;
+  // Buscamos todos los elementos con la clase .floating en cualquier parte
+  const floatingAssets = document.querySelectorAll(".floating");
 
-  if (stage && wrapper) {
-    // 1. Set initial Z-depth for the "Explosion" effect
-    layers.forEach((layer) => {
-      gsap.set(layer, { z: layer.dataset.depth });
-    });
-
-    // 2. THE IDLE LOOP: Each asset floats at a different rhythm
+  if (floatingAssets.length > 0) {
     floatingAssets.forEach((asset, i) => {
       gsap.to(asset, {
-        y: i % 2 === 0 ? -10 : 10, // Some float up, some float down
-        x: i % 2 === 0 ? 5 : -5, // Tiny bit of side-drift
-        rotation: i % 2 === 0 ? 2 : -2, // Very subtle wiggle
-        duration: 3 + i * 0.5, // Offset timing so they look organic
+        y: i % 2 === 0 ? -12 : 12, // Un poco más de movimiento vertical
+        x: i % 2 === 0 ? 4 : -4,
+        rotation: i % 2 === 0 ? 3 : -3,
+        duration: 2.5 + i * 0.5, // Ritmo orgánico
         ease: "sine.inOut",
         repeat: -1,
         yoyo: true,
       });
     });
-
-    // 3. THE MOUSE FOLLOW: Subtle tilt
   }
 </script>
